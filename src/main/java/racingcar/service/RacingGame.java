@@ -30,12 +30,7 @@ public class RacingGame {
     }
 
     public List<Car> getWinners() {
-        int maxPosition = 0;
-        for (Car car : cars) {
-            if(car.getPosition() > maxPosition) {
-                maxPosition = car.getPosition();
-            }
-        }
+        int maxPosition = getMaxPosition();
 
         List<Car> winners = new ArrayList<>();
         for (Car car : cars) {
@@ -45,6 +40,16 @@ public class RacingGame {
         }
 
         return winners;
+    }
+
+    private int getMaxPosition() {
+        int maxPosition = 0;
+        for (Car car : cars) {
+            if(car.getPosition() > maxPosition) {
+                maxPosition = car.getPosition();
+            }
+        }
+        return maxPosition;
     }
 
     public List<Car> getCars() {
